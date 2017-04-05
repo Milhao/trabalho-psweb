@@ -3,6 +3,17 @@
 	height: 100px;
 }
 
+.detalhado {
+    width: 100%;
+    height: 100px;
+}
+
+.detalhado .foto {
+    width: 100px;
+    height: 100%;
+    float: left;
+}
+
 .foto {
 	width: 100%;
 	height: 100%;
