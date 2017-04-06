@@ -44,20 +44,19 @@ nav ul li a {
     font: 18px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-nav ul ul {
-	display: none;
-}
-
 nav ul li:hover > ul {
     display: block;
 }
 
 nav ul ul {
+	display: none;    
 	background: #536DFE; 
     border-radius: 0px; 
     padding: 0;
 	position: absolute; 
     top: 100%;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 
 nav ul ul li {
