@@ -9,7 +9,7 @@
         <script src="https://www.w3schools.com/lib/w3data.js"></script>     
     </head>
     <body>
-        <div w3-include-html="menu.html"></div> 
+        <div w3-include-html="menu-admin.html"></div> 
         <h1>Editar Produto</h1>
 		<form action="">
 		    Nome: <input type="text"  name=" nome"/><br/>
@@ -18,13 +18,9 @@
 			Quantidade no Estoque: <input type="number"  name=" quantidade-estoque" min="0" max="10000"/><br/>
 		    Quantidade Vendida: <input type="number" name=" quantidade-vendida" min="0" max="10000"/><br/>
 			Foto: <input type="file" name="foto"/><br/>
-			
 		    <input type="submit" value="Salvar Alterações"/>
 			<input type="submit" value="Excluir Produto"/>
-		
-                  
         </form>
-						
         <!-- Scripts no fim do Body -->
         <script> w3IncludeHTML(); </script>
     </body>

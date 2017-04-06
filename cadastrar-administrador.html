@@ -2,12 +2,15 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Amicao</title>
         <link rel="stylesheet" href="menu.css"/>
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>    
     </head>
     <body>
+        <div w3-include-html="menu-admin.html"></div> 
         <h1>Cadastrar Administrador</h1>
-
         <form action="">
             Nome: <input type="text" name"nome"/><br/>
             Email: <input type="email" name"email"/><br/>
@@ -15,6 +18,7 @@
             Confirmar Senha: <input type="password" name"confirmar-senha"/><br/>
             <input type="submit" value="Cadastrar"/>
         </form>
-
+        <!-- Scripts no fim do Body -->
+        <script> w3IncludeHTML(); </script>
     </body>
 </html>

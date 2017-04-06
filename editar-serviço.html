@@ -9,20 +9,16 @@
         <script src="https://www.w3schools.com/lib/w3data.js"></script>     
     </head>
     <body>
-        <div w3-include-html="menu.html"></div> 
+        <div w3-include-html="menu-admin.html"></div> 
         <h1>Editar Serviço</h1>
 		<form action="">
 		    Nome: <input type="text"  name="nome"/><br/>
 			Descrição: <input type="text"  name="descricao"/><br/>
 			Preço: <input type="number"  name=" preco" min="0" max="5000"/><br/>
 			Foto: <input type="file" name="foto"/><br/>
-			
 		    <input type="submit" value="Salvar Alterações"/>
-			<input type="submit" value="Excluir Serviço"/>
-		
-                  
+			<input type="submit" value="Excluir Serviço"/>  
         </form>
-						
         <!-- Scripts no fim do Body -->
         <script> w3IncludeHTML(); </script>
     </body>
