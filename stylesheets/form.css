@@ -4,6 +4,20 @@ h1 {
     font: 32px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+h2 {
+    text-align: center;
+    color: #D32F2F;
+    font: 24px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+hr {
+    color: #D32F2F;
+    opacity: 0.5;
+    margin-top: -12px;
+    margin-bottom: 16px;
+    width: 80%;
+}
+
 input {
     display: block;
     margin-left: auto;
