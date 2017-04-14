@@ -1,36 +1,37 @@
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8"/>
+		<meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Amicao</title>
-        <link rel="stylesheet" href="menu.css"/>
-        <link rel="stylesheet" type="text/css" href="style/style.css">
-    </head>
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>    </head>
     <body>
+		<div w3-include-html="menu-admin.html"></div> 
         <h1>Editar Reserva</h1>
-
-        <form action="">
-            Cliente: <input type="text"  name="cliente"/><br/>
-			
-            Animal: 
+        <form action="" method="POST">
+			<h2>Cliente</h2>
+            <input type="text" name="cliente" placeholder="Cliente"/>
+			<h2>Animal</h2>
 			<select name="animal">
+				<option value="" disabled="disabled" selected="selected">Selecione seu Animalzinho</option>                
 				<option value="cachorro">Cachorro</option>
 				<option value="gato">Gato</option>
 				<option value="coelho">Coelho</option>
 				<option value="hamste">Hamster</option>
 				<option value="aves">Aves</option>
 			</select>
-			<br/>
-			
-			Serviço: 
+			<h2>Serviço</h2>
 			<select name="servico">
+				<option value="" disabled="disabled" selected="selected">Selecione um Serviço para ele</option>                
 				<option value="tosa">Tosa</option>
 				<option value="banho">Banho</option>
 				<option value="vacina">Vacina</option>
 			</select>
-			<br/><br/>
-			
-			<input type="submit" value="Salvar Alteração">
-            <input type="submit" value="Excluir Reserva">		
+			<input class="submit-button" type="submit" value="Salvar Alteração">
+            <input class="submit-button" type="submit" value="Excluir Reserva">		
 		</form>
+		<script src="https://www.w3schools.com/lib/w3data.js"></script>     
+        <script> w3IncludeHTML(); </script>
     </body>
 </html>
