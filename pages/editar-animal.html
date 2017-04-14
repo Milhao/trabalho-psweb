@@ -5,22 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Amicao</title>
-        <link rel="stylesheet" href="menu.css"/>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
     </head>
     <body>
         <div w3-include-html="menu-cliente.html"></div> 
         <h1>Editar Animal</h1>
         <form action="" method="POST">
-            Nome: <input type="text" name="nome"/><br/>
-            Raça: <input type="text" name="raca"/><br/>
-            Idade: <input type="number" name="idade"/><br/>
-            Foto: <input type="file" name="foto"/><br/>
-            <input type="submit" value="Salvar"/>
-            <input type="button" value="Excluir"/>
+            <input type="text" name="nome" placeholder="Nome"/>
+            <input type="text" name="raca" placeholder="Raça"/>
+            <input type="number" name="idade" placeholder="Idade"/>
+            <p class="form-out-text">Selecione uma Foto </p>
+            <input type="file" name="foto" accept="image/*"/>
+            <input class="submit-button" type="submit" value="Salvar Alterações"/>
+            <input class="submit-button" type="button" value="Excluir Animal"/>
         </form>  
-        <!-- Scripts no fim do Body -->
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>
         <script> w3IncludeHTML(); </script>
     </body>
 </html>

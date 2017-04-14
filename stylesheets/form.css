@@ -10,6 +10,12 @@ h2 {
     font: 24px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+h3 {
+    text-align: center;
+    color: #303F9F;
+    font: 18px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 hr {
     color: #D32F2F;
     opacity: 0.5;
@@ -19,6 +25,15 @@ hr {
 }
 
 input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+select {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -41,4 +56,18 @@ input {
     padding: 8px;
     margin-top: 16px;
     font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.product-container {
+    text-align: center;
+}
+
+.price {
+    font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #303F9F;        
+}
+
+.total-price {
+    font: 22px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #303F9F;        
 }

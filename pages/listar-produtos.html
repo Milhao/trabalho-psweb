@@ -5,40 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Amicao</title>
-        <link rel="stylesheet" href="style/lista.css"/>
-        <link rel="stylesheet" href="menu.css"/>    
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
+        <link rel="stylesheet" href="../stylesheets/lista.css"/>
     </head>
     <body>
         <div w3-include-html="menu-cliente.html"></div> 
-        <h1>Produtos</h1>
-        <ul>
-            <li>
+        <div class="list-container">
+            <h1>Produtos</h1>
+            <section class="image-container">
                 <a href="detalhes-produto.html">
-                    <div class="item">
-                        <img class="foto" src="images/prod1.jpg">
-                        <p>Ração</p>
-                    </div>
+                    <img class="foto" src="../images/prod1.jpg">
+                    <p>Ração</p>        
                 </a>
-            </li>
-            <li>
+            </section>
+
+            <section class="image-container">
                 <a href="detalhes-produto.html">
-                    <div class="item">
-                        <img class="foto" src="images/prod2.jpg">
-                        <p>Casinha</p>
-                    </div>
+                    <img class="foto" src="../images/prod2.jpg">
+                    <p>Casinha</p>
                 </a>
-            </li>
-            <li>
+            </section>
+
+            <section class="image-container">
                 <a href="detalhes-produto.html">
-                    <div class="item">
-                        <img class="foto" src="images/prod3.jpg">
-                        <p>Brinquedo</p>
-                    </div>
+                    <img class="foto" src="../images/prod3.jpg">
+                    <p>Brinquedo</p>
                 </a>
-            </li>
-        </ul>
-        <!-- Scripts no fim do Body -->
+            </section>
+        </div>
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>
         <script> w3IncludeHTML(); </script>
     </body>
 </html>

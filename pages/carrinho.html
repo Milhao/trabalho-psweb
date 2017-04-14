@@ -5,23 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Amicao</title>
-        <link rel="stylesheet" href="menu.css"/>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>     
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
     </head>
     <body>
         <div w3-include-html="menu-cliente.html"></div> 
         <h1>Carrinho</h1>
-		<p>Lista dos Produtos e/ou Serviços Comprados<p/>
-		<form action="">
-		    Produto: <input type="text"  name="produto"/> Preço: <input type="number" name="preco"/>
-			Quantidade: <input type="number" name="quantidade"/> 
-			Total: <input type="number" name="total"/> <input type="submit" value="Excluir"/><br/>
-			
-			Valor Total: <input type="number" name="valor-total"/> <input type="submit" value="Comprar"/>
-		
+		<h2>Produtos e Serviços</h2><hr/>
+        <section class="product-container">
+            <h3>Ração Pedigree Adulto (10kg)</h3>
+            <p class="price">Preço unitário: <span style="color:black">19,90</span></p>
+            <form action="">
+                <input type="number" name="quantidade" placeholder="Quantidade"/> 
+                <input class="submit-button" type="submit" value="Excluir"/><br/>
+            </form>
+            <h2>Total</h2><hr/>
+            <p class="total-price">Valor Total: <span style="color:black">19,90</span></p> 
+        </section>
+        <form action="" method="POST">
+            <input class="submit-button" type="submit" value="Comprar"/>
         </form>
-						
-        <!-- Scripts no fim do Body -->
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>     
         <script> w3IncludeHTML(); </script>
     </body>
 </html>
