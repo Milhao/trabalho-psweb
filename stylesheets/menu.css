@@ -1,0 +1,143 @@
+#petshop-logo {
+    height: 36px;
+    width: 148px;
+    float: left;
+    margin-left: 24px;
+    margin-top: 32px;
+}
+
+#admin-index-image{
+    height: 58px;
+    width: 58px;
+    background: white;
+    border-width: 0px;
+    border-radius: 24px;
+    float: right;
+    margin-right: 24px;
+    margin-top: 24px;
+}
+
+#shop-cart {
+    height: 48px;
+    width: 56px;
+    float: right;
+    margin-right: 32px;
+    margin-top: 24px;
+}
+
+nav {
+    background-color: #3F51B5;
+    border-radius: 24px;
+    width: 100%;
+}
+
+nav ul {
+	padding-left: 24px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+
+nav ul:after {
+    content: ""; 
+    clear: both; 
+    display: block;
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li:hover {
+    background: #303F9F;
+}
+
+nav ul li:hover a {
+    color: #fff;
+}
+
+nav ul li a {
+    display: block; 
+    padding: 24px 32px;
+    color: #FFFFFF; 
+    text-decoration: none;
+    font: 18px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul ul {
+	display: none;    
+	background: #536DFE; 
+    border-radius: 0px; 
+    padding: 0;
+	position: absolute; 
+    top: 100%;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+nav ul ul li {
+    float: none; 
+    position: relative;
+}
+
+nav ul ul li a {
+    padding: 15px 40px;
+    color: #fff;
+}	
+
+nav ul ul li a:hover {
+    background: #303F9F;
+}
+
+.login-button {
+    background: #3F51B5;
+    border-width: 1px;
+    border-color: #000051;
+    color: white;
+    font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    float: right;    
+}
+
+.login-form {
+    margin-right: 16px;
+    float: right;
+}
+
+.login-input {
+    margin-top: 42px;
+    margin-left: 8px;
+    margin-right: 8px;
+    font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;    
+    float: right;    
+}
+
+footer {
+    position:relative;
+    bottom:0px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    text-align: center;
+    height: 32px;
+    width: 94%;
+    background-color: #3F51B5; 
+    border-radius: 32px;
+}
+
+.admin-link {
+    text-decoration: none;
+    color: white;
+}
+
+#credit-card-image {
+    height: 148px;
+    width: 256px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}

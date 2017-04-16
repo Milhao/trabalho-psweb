@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amicao</title>
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
+    </head>
+    <body>
+		<div w3-include-html="menu-cliente.html"></div> 
+        <h1>Reservar Horário</h1>
+        <form action="carrinho.html" method"POST">
+			<h2>Data</h2>			
+            <input type="date" name="data" placeholder="MM/DD/YYYY" maxlength="10"/>
+			<h2>Horário Disponível</h2>
+			<select class="service-select" name="horario">
+				<option value="" disabled="disabled" selected="selected">Selecione um Horário</option>                
+				<option value="">08:00 - Livre</option>
+				<option value="" disabled="disabled">09:00 - Bela - Banho</option>
+				<option value="">10:00 - Livre</option>
+				<option value="">11:00 - Livre</option>
+				<option value="" disabled="disabled">12:00 - Suzy - Tosa</option>
+				<option value="">13:00 - Livre</option>
+				<option value="">14:00 - Livre</option>
+				<option value="">15:00 - Livre</option>
+				<option value="" disabled="disabled">16:00 - Montanha - Vacina</option>
+				<option value="">17:00 - Livre</option>
+				<option value="">18:00 - Livre</option>
+			</select>			
+			<h2>Animal</h2>
+			<select class="service-select" name="animal">
+				<option value="" disabled="disabled" selected="selected">Selecione seu Animalzinho</option>                
+				<option value="cachorro">Cachorro</option>
+				<option value="gato">Gato</option>
+				<option value="coelho">Coelho</option>
+				<option value="hamste">Hamster</option>
+				<option value="aves">Aves</option>
+			</select>
+			<h2>Serviço</h2>
+			<select class="service-select" name="servico">
+				<option value="" disabled="disabled" selected="selected">Selecione um Serviço para ele</option>                
+				<option value="tosa">Tosa</option>
+				<option value="banho">Banho</option>
+				<option value="vacina">Vacina</option>
+			</select>
+			<input class="submit-button" type="submit" value="Reservar"/>
+		</form>
+		<script src="https://www.w3schools.com/lib/w3data.js"></script>     
+        <script> w3IncludeHTML(); </script>
+    </body>
+</html>

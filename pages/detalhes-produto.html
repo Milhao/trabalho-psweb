@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amicao</title>
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
+    </head>
+    <body>
+        <div w3-include-html="menu-cliente.html"></div> 
+        <h1>Ração Pedrigree Adulto (10kg)</h1>
+        <section class="product-container">
+            <img src="../images/prod1.jpg">
+            <p class="price">Preço unitário: <span style="color:black">19,90</span></p>
+        </section>
+        <form action="carrinho.html" method="POST">
+            <input type="number" name="quantidade" placeholder="Quantidade">
+            <input class="submit-button" type="submit" value="Adicionar ao Carrinho"/>
+        </form>
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>
+        <script> w3IncludeHTML(); </script>
+    </body>
+</html>
