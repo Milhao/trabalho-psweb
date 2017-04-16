@@ -11,8 +11,8 @@
     margin-left: 16px;
 }
 
-img {
-    border-radius: 8px;    
+.list-image {
+    border-radius: 128px;    
     width: 90%;
     height: 236px;
 }

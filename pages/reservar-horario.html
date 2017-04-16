@@ -11,10 +11,26 @@
     <body>
 		<div w3-include-html="menu-cliente.html"></div> 
         <h1>Reservar Horário</h1>
-        <form action="" method"POST">
-            <input type="text" name="cliente" placeholder="Cliente"/>
+        <form action="carrinho.html" method"POST">
+			<h2>Data</h2>			
+            <input type="date" name="data" placeholder="MM/DD/YYYY" maxlength="10"/>
+			<h2>Horário Disponível</h2>
+			<select class="service-select" name="horario">
+				<option value="" disabled="disabled" selected="selected">Selecione um Horário</option>                
+				<option value="">08:00 - Livre</option>
+				<option value="" disabled="disabled">09:00 - Bela - Banho</option>
+				<option value="">10:00 - Livre</option>
+				<option value="">11:00 - Livre</option>
+				<option value="" disabled="disabled">12:00 - Suzy - Tosa</option>
+				<option value="">13:00 - Livre</option>
+				<option value="">14:00 - Livre</option>
+				<option value="">15:00 - Livre</option>
+				<option value="" disabled="disabled">16:00 - Montanha - Vacina</option>
+				<option value="">17:00 - Livre</option>
+				<option value="">18:00 - Livre</option>
+			</select>			
 			<h2>Animal</h2>
-			<select name="animal">
+			<select class="service-select" name="animal">
 				<option value="" disabled="disabled" selected="selected">Selecione seu Animalzinho</option>                
 				<option value="cachorro">Cachorro</option>
 				<option value="gato">Gato</option>
@@ -23,7 +39,7 @@
 				<option value="aves">Aves</option>
 			</select>
 			<h2>Serviço</h2>
-			<select name="servico">
+			<select class="service-select" name="servico">
 				<option value="" disabled="disabled" selected="selected">Selecione um Serviço para ele</option>                
 				<option value="tosa">Tosa</option>
 				<option value="banho">Banho</option>

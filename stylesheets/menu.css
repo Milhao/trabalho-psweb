@@ -6,6 +6,17 @@
     margin-top: 32px;
 }
 
+#admin-index-image{
+    height: 58px;
+    width: 58px;
+    background: white;
+    border-width: 0px;
+    border-radius: 24px;
+    float: right;
+    margin-right: 24px;
+    margin-top: 24px;
+}
+
 #shop-cart {
     height: 48px;
     width: 56px;
@@ -80,4 +91,53 @@ nav ul ul li a {
 
 nav ul ul li a:hover {
     background: #303F9F;
+}
+
+.login-button {
+    background: #3F51B5;
+    border-width: 1px;
+    border-color: #000051;
+    color: white;
+    font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    float: right;    
+}
+
+.login-form {
+    margin-right: 16px;
+    float: right;
+}
+
+.login-input {
+    margin-top: 42px;
+    margin-left: 8px;
+    margin-right: 8px;
+    font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;    
+    float: right;    
+}
+
+footer {
+    position:relative;
+    bottom:0px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    text-align: center;
+    height: 32px;
+    width: 94%;
+    background-color: #3F51B5; 
+    border-radius: 32px;
+}
+
+.admin-link {
+    text-decoration: none;
+    color: white;
+}
+
+#credit-card-image {
+    height: 148px;
+    width: 256px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
