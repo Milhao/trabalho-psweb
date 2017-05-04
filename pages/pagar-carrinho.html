@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amicao</title>
+        <link rel="stylesheet" href="../stylesheets/menu.css"/>
+        <link rel="stylesheet" href="../stylesheets/form.css"/>
+    </head>
+    <body>
+        <div w3-include-html="menu-cliente.html"></div> 
+        <h1>Pagar Carrinho</h1>
+        <section class="product-container">
+            <h2>Total</h2><hr/>
+            <p class="total-price">Valor Total: <span style="color:black">39,80</span></p>
+        </section>
+        <form action="pagar-carrinho.html" method="POST">
+            <h2>Dados do Cartao de Crédito</h2><hr/> 
+            <img id="credit-card-image" src="../images/credit-card.png"/>
+            <input type="text" name="nome-titular" placeholder="Nome do Titular"/>
+            <input type="number" name="numero-cartao" placeholder="Numero do Cartao"/>  
+            <input type="number" name="numero-seguranca" placeholder="Número de Segurança" min="100" max="999"/>  
+            <p class="form-out-text ">Data de Validade</p>
+            <section class="inline-select-container">
+                <select class="inline-select">
+                    <option value="" disabled="disabled" selected="selected">Mês</option>                
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>  
+                <select class="inline-select">                
+                    <option value="" disabled="disabled" selected="selected">Ano</option>                
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                </select>    
+            </section>        
+            <input class="submit-button" type="submit" value="Pagar Compra"/>
+        </form>
+        <script src="https://www.w3schools.com/lib/w3data.js"></script>     
+        <script> w3IncludeHTML(); </script>
+    </body>
+</html>
