@@ -82,6 +82,8 @@ nav ul ul {
 nav ul ul li {
     float: none; 
     position: relative;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 
 nav ul ul li a {
@@ -91,6 +93,8 @@ nav ul ul li a {
 
 nav ul ul li a:hover {
     background: #303F9F;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 
 .login-button {
