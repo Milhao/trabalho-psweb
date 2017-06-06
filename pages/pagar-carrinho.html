@@ -9,7 +9,33 @@
         <link rel="stylesheet" href="../stylesheets/form.css"/>
     </head>
     <body>
-        <div w3-include-html="menu-cliente.html"></div> 
+        <nav>
+            <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
+            <ul>
+                <li><a href="">Produtos</a>
+                    <ul>
+                        <li><a href="listar-produtos.html">Ração</a></li>
+                        <li><a href="listar-produtos.html">Casinha</a></li>
+                        <li><a href="listar-produtos.html">Brinquedo</a></li>
+                    </ul> 
+                </li>
+                <li><a href="">Animais</a>
+                    <ul>
+                        <li><a href="cadastrar-animal.html">Cadastrar</a></li>
+                        <li><a href="listar-animal.html">Editar Dados</a></li>
+                    </ul>
+                </li>
+                <li><a href="servico.html">Serviços</a></li>
+                <li><a href="">Dados Pessoais</a>
+                    <ul>
+                        <li><a href="editar-dados-pessoais.html">Editar</a></li>
+                        <li><a href="editar-endereco.html">Endereço</a></li>
+                        <li><a href="editar-senha.html">Alterar Senha</a></li>
+                    </ul>
+                </li>
+            </ul> 
+            <a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>            
+        </nav> 
         <h1>Pagar Carrinho</h1>
         <section class="product-container">
             <h2>Total</h2><hr/>
@@ -20,7 +46,7 @@
             <img id="credit-card-image" src="../images/credit-card.png"/>
             <input type="text" name="nome-titular" placeholder="Nome do Titular"/>
             <input type="number" name="numero-cartao" placeholder="Numero do Cartao"/>  
-            <input type="number" name="numero-seguranca" placeholder="Número de Segurança" min="100" max="999"/>  
+            <input type="number" name="numero-seguranca" placeholder="Número de Segurança"/>  
             <p class="form-out-text ">Data de Validade</p>
             <section class="inline-select-container">
                 <select class="inline-select">
@@ -56,7 +82,5 @@
             </section>        
             <input class="submit-button" type="submit" value="Pagar Compra"/>
         </form>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>     
-        <script> w3IncludeHTML(); </script>
     </body>
 </html>

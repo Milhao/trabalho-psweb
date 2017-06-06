@@ -9,11 +9,31 @@
         <link rel="stylesheet" href="../stylesheets/form.css"/>
     </head>
     <body>
-        <div w3-include-html="menu-admin.html"></div> 
+       <nav>
+            <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
+            <ul>
+                <li><a href="">Cadastro</a>
+                    <ul>
+                        <li><a href="cadastrar-cliente.html">Cliente</a></li>
+                        <li><a href="cadastrar-administrador.html">Administrador</a></li>
+                        <li><a href="cadastrar-produto.html">Produto</a></li>
+                        <li><a href="cadastrar-servico.html">Serviço</a></li>
+                    </ul> 
+                </li>
+                <li><a href="">Gerenciamento</a>
+                    <ul>
+                        <li><a href="pesquisar-cliente.html">Clientes</a></li>    
+                        <li><a href="pesquisar-administrador.html">Administradores</a></li>
+                        <li><a href="pesquisar-produto.html">Produtos</a></li>
+                        <li><a href="pesquisar-servico.html">Serviços</a></li>
+                        <li><a href="editar-reserva.html">Agendamentos</a></li>                                                    
+                    </ul> 
+                </li>
+            </ul> 
+            <a href="index-admin.html"><img id="admin-index-image" src="../images/admin-logo.png" alt="Admin Index"/></a>    
+        </nav> 
         <h1>Área de Administrador</h1>
         <img  class="admin-image" src="../images/admin-penguin.png" alt="Admin Logo"/>
-        </form>    
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>     
-        <script> w3IncludeHTML(); </script>
+        </form>
     </body>
 </html>

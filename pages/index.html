@@ -10,7 +10,37 @@
 		<link rel="stylesheet" href="../stylesheets/lista.css"/>
     </head>
     <body>
-        <div w3-include-html="menu-login.html"></div>
+		<nav>
+			<a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
+			<ul>
+				<li><a href="">Produtos</a>
+					<ul>
+						<li><a href="listar-produtos.html">Ração</a></li>
+						<li><a href="listar-produtos.html">Casinha</a></li>
+						<li><a href="listar-produtos.html">Brinquedo</a></li>
+					</ul> 
+				</li>
+				<li><a href="">Animais</a>
+					<ul>
+						<li><a href="cadastrar-animal.html">Cadastrar</a></li>
+						<li><a href="listar-animal.html">Editar Dados</a></li>
+					</ul>
+				</li>
+				<li><a href="servico.html">Serviços</a></li>
+				<li><a href="">Dados Pessoais</a>
+					<ul>
+						<li><a href="editar-dados-pessoais.html">Editar</a></li>
+						<li><a href="editar-endereco.html">Endereço</a></li>
+						<li><a href="editar-senha.html">Alterar Senha</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<div class="login-form" action="" method="POST">
+				<input class="login-input login-button"  class="login-button" class="" type="submit" value="Entrar"/>		
+				<input class="login-input" type="password" name="password" placeholder="Senha"/>
+				<input class="login-input" type="email" name="email" placeholder="E-mail"/>
+			</form>      
+		</nav>
 		<h1>Bem vindo ao Amicão, o melhor lugar para seus amiginhos</h1>
 		<h2>Vendemos ração, casinhas e brinquedos. Oferecemos também serviço de tosa, banho e vacina para seus bichinhos</h2>
 		<div class="list-container">
@@ -26,8 +56,6 @@
 		</div>
 		<footer>
 			<a class="admin-link" href="index-admin.html">Área de Administrador</a>
-		</footer>			
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
-        <script> w3IncludeHTML(); </script>
+		</footer>
     </body>
 </html>
