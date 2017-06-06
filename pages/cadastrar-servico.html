@@ -7,6 +7,7 @@
         <title>Amicao</title>
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
+        <script type="text/javascript" src="../javascript/adm.js"></script>
     </head>
     <body>
        <nav>
@@ -34,12 +35,12 @@
         </nav>
         <h1>Cadastrar Serviço</h1>
         <form action="" enctype="multipart/form-data" method="POST">
-            <input type="text" name="nome" placeholder="Nome"/>
-            <input type="text" name="descricao" placeholder="Descrição"/>
-            <input type="number" name="preco" placeholder="Preço"/>
+            <input id="name" type="text" name="nome" placeholder="Nome"/>
+            <input id="desc" type="text" name="descricao" placeholder="Descrição"/>
+            <input id="price" type="number" name="preco" placeholder="Preço"/>
             <p class="form-out-text">Foto</p>
-			<input type="file" name="foto" accept="image/*"/>
-            <input class="submit-button" type="submit" value="Cadastrar"/>
+			<input id="foto" type="file" name="foto" accept="image/*"/>
+            <input class="submit-button" type="submit" value="Cadastrar" onclick="cadastrarServico()" />
         </form>
     </body>
 </html>
