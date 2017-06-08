@@ -7,7 +7,7 @@ function cadastrarAdministrador(){
 		adm = {name: name, email: email, password: password};
 		alert(JSON.stringify(adm));
 	} else {
-		alert('Senha errada!');
+		alert('As senhas devem ser iguais!');
 	}
 }
 
@@ -20,7 +20,7 @@ function cadastrarCliente(){
 		cliente = {name: name, email: email, password: password};
 		alert(JSON.stringify(cliente));
 	} else {
-		alert('Senha errada!');
+		alert('As senhas devem ser iguais!');
 	}
 }
 

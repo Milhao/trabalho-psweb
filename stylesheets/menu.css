@@ -103,7 +103,7 @@ nav ul ul li a:hover {
     border-color: #000051;
     color: white;
     font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;
-    float: right;    
+    float: left;
 }
 
 .login-form {
@@ -116,7 +116,7 @@ nav ul ul li a:hover {
     margin-left: 8px;
     margin-right: 8px;
     font: 12px "Helvetica Neue",Helvetica,Arial,sans-serif;    
-    float: right;    
+    float: left;
 }
 
 footer {
