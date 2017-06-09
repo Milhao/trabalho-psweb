@@ -1,31 +1,9 @@
-function CreateObjectStore(dbName, storeName) {
-    var request = indexedDB.open(dbName);
-    request.onsuccess = function (e){
-        var database = e.target.result;
-        var version =  parseInt(database.version);
-        database.close();
-        var secondRequest = indexedDB.open(dbName, version+1);
-        secondRequest.onupgradeneeded = function (e) {
-            var database = e.target.result;
-            var objectStore = database.createObjectStore(storeName, { keyPath : 'id', autoIncrement : true });
-            objectStore.createIndex('name', 'name', { unique : false });
-			objectStore.createIndex('email', 'email', { unique : true});
-			objectStore.createIndex('password', 'password', { unique : false});
-        };
-        secondRequest.onsuccess = function (e) {
-            e.target.result.close();
-        }
-    }
-}
-
 function startDB() {
-	let dbName = "amicao";
+	let dbName = "amicao2";
 	dataBase = indexedDB.open(dbName,1);
 	dataBase.onupgradeneeded = function (e) {
 	
-		CreateObjectStore(dbName,"adm");
-		CreateObjectStore(dbName,"cliente");
-		/*var active = dataBase.result;
+		var active = dataBase.result;
 		var object = active.createObjectStore('adm', { keyPath : 'id', autoIncrement : true });
 		object.createIndex('name', 'name', { unique : false });
 		object.createIndex('email', 'email', { unique : true});
@@ -34,7 +12,7 @@ function startDB() {
 		var object = active.createObjectStore('cliente', { keyPath : 'id', autoIncrement : true });
 		object.createIndex('name', 'name', { unique : false });
 		object.createIndex('email', 'email', { unique : true});
-		object.createIndex('password', 'password', { unique : false});*/
+		object.createIndex('password', 'password', { unique : false});
 	};
 	dataBase.onsuccess = function (e) {
 		alert('Database loaded');

@@ -3,15 +3,15 @@ function login(){
 	email = document.getElementById('email').value;
 
 	var active = dataBase.result;
-	var data = active.transaction(["adm"], "readonly");
-	var object = data.objectStore("adm");
+	var data = active.transaction(["cliente"], "readonly");
+	var object = data.objectStore("cliente");
 		
-	var request = object.get(email);
+	var request = object.get(String(email));
 	
 	request.onsuccess = function () {
 	
 		var result = request.result;
-		
+
 		if (result !== undefined) {
 			alert("Nome: " + result.name + "\n\
 			E-mail: " + result.email);
