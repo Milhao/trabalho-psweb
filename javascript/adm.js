@@ -5,7 +5,7 @@ function cadastrarAdministrador(){
 	cpassword = document.getElementById('cpassword').value;
 	if(password == cpassword){
 		adm = {name: name, email: email, password: password};
-		alert(JSON.stringify(adm));
+		addAdm(adm);
 	} else {
 		alert('As senhas devem ser iguais!');
 	}
@@ -18,7 +18,7 @@ function cadastrarCliente(){
 	cpassword = document.getElementById('cpassword').value;
 	if(password == cpassword){
 		cliente = {name: name, email: email, password: password};
-		alert(JSON.stringify(cliente));
+		addCliente(cliente);
 	} else {
 		alert('As senhas devem ser iguais!');
 	}

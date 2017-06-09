@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/adm.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body>
+    <body onload="startDB()">
        <nav>
             <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
             <ul>
@@ -40,7 +40,7 @@
             <input id="email" type="email" name="email" placeholder="E-mail"/>
             <input id="password" type="password" name="senha" placeholder="Senha"/>
             <input id="cpassword" type="password" name="confirmar-senha" placeholder="Confirmar Senha"/>
-            <input class="submit-button" type="submit" value="Cadastrar" onclick="cadastrarCliente()" />
+            <input class="submit-button" type="button" value="Cadastrar" onclick="cadastrarCliente()" />
         </form>
     </body>
 </html>

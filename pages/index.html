@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../stylesheets/lista.css"/>
 		<script type="text/javascript" src="../javascript/user.js"></script>
     </head>
-    <body>
+    <body onload="startDB()">
 		<nav>
 			<a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
 			<ul>
@@ -39,7 +39,7 @@
 			<div class="login-form" action="" method="POST">
 				<input id="email" class="login-input" type="email" name="email" placeholder="E-mail"/>
 				<input id="password" class="login-input" type="password" name="password" placeholder="Senha"/>
-				<input class="login-input login-button"  class="login-button" class="" type="submit" value="Entrar" onclick="login()" />
+				<input class="login-input login-button"  class="login-button" class="" type="button" value="Entrar" onclick="login()" />
 			</form>      
 		</nav>
 		<h1>Bem vindo ao Amicão, o melhor lugar para seus amiginhos</h1>
