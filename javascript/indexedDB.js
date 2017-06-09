@@ -1,5 +1,5 @@
 function startDB() {
-	let dbName = "amicao2";
+	let dbName = "amicao";
 	dataBase = indexedDB.open(dbName,1);
 	dataBase.onupgradeneeded = function (e) {
 	
@@ -53,4 +53,4 @@ function addCliente(cliente){
 	data.oncomplete = function (e) {
 		alert('Cadastro efetuado com sucesso!');
 	};
-}	
+}

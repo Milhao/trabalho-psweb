@@ -3,19 +3,19 @@ function login(){
 	email = document.getElementById('email').value;
 
 	var active = dataBase.result;
-	var data = active.transaction(["cliente"], "readonly");
-	var object = data.objectStore("cliente");
-		
-	var request = object.get(String(email));
+	var transaction = active.transaction(["cliente"], "readonly");
+	var objectStore = transaction.objectStore("cliente");
+	var index = objectStore.index("email");
+	var request = index.get(email);
 	
 	request.onsuccess = function () {
-	
-		var result = request.result;
-
-		if (result !== undefined) {
-			alert("Nome: " + result.name + "\n\
-			E-mail: " + result.email);
-		}
+		if (request.result !== undefined) {
+			if(request.result.password !== password)
+				alert("Senha errada!");
+			else
+				alert("Id: " + request.result.id + "\nNome: " + request.result.name + "\nE-mail: " + request.result.email);
+		} else
+			alert("E-mail não encontrado!");
 	};
 
 	request.onerror = function (e) {
