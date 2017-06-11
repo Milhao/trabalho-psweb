@@ -13,8 +13,7 @@ function login(){
 			if(request.result.password !== password)
 				alert("Senha errada!");
 			else
-				console.log("Comum")//deve gerar o cookie do usuario logado
-				//alert("Id: " + request.result.id + "\nNome: " + request.result.name + "\nE-mail: " + request.result.email);
+				window.location.assign("index-user.html");
 		} else {
 			var transaction2 = active.transaction(["adm"], "readonly");
 			var objectStore2 = transaction2.objectStore("adm");
