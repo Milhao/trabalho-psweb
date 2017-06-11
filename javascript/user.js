@@ -13,9 +13,24 @@ function login(){
 			if(request.result.password !== password)
 				alert("Senha errada!");
 			else
-				alert("Id: " + request.result.id + "\nNome: " + request.result.name + "\nE-mail: " + request.result.email);
-		} else
-			alert("E-mail não encontrado!");
+				alert("Comum")//deve gerar o cookie do usuario logado
+				//alert("Id: " + request.result.id + "\nNome: " + request.result.name + "\nE-mail: " + request.result.email);
+		} else {
+			var transaction2 = active.transaction(["adm"], "readonly");
+			var objectStore2 = transaction2.objectStore("adm");
+			var index2 = objectStore2.index("email");
+			var request2 = index2.get(email);
+
+			request2.onsuccess = function () {
+				if (request2.result !== undefined) {
+					if(request2.result.password !== password)
+						alert("Senha errada!");
+					else
+						window.location.assign("index-admin.html");
+				} else
+					alert("E-mail não encontrado!");
+			};
+		}
 	};
 
 	request.onerror = function (e) {

@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/adm.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body>
+    <body onload="startDB()">
        <nav>
             <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
             <ul>
@@ -41,7 +42,7 @@
 		    <input id="qtd" type="number" name="quantidade-estoque" placeholder="Quantidade no Estoque"/>
             <p class="form-out-text">Foto</p>
 			<input id="foto" type="file" name="foto" accept="image/*"/>
-            <input class="submit-button" type="submit" value="Cadastrar" onclick="cadastrarProduto()" />
+            <input class="submit-button" type="button" value="Cadastrar" onclick="cadastrarProduto()" />
         </form>
     </body>
 </html>
