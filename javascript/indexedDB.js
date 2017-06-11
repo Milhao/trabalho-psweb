@@ -47,11 +47,11 @@ function startDB() {
 
 	};
 	dataBase.onsuccess = function (e) {
-		alert('Database loaded');
+		console.log("Database loaded")
 	};
 
 	dataBase.onerror = function (e) {
-		alert('Error loading database');
+		console.log('Error loading database');
 	};
 }
 
@@ -63,11 +63,11 @@ function addAdm(adm){
 	var request = objectStore.put(adm);
 
 	request.onerror = function (e) {
-		alert(request.error.name + '\n\n' + request.error.message);
+		console.log(request.error.name + '\n\n' + request.error.message);
 	};
 
 	transaction.oncomplete = function (e) {
-		alert('Administrador cadastrado!');
+		console.log('Administrador cadastrado!');
 	};
 }
 
@@ -79,11 +79,11 @@ function addCliente(cliente){
 	var request = objectStore.put(cliente);
 
 	request.onerror = function (e) {
-		alert(request.error.name + '\n\n' + request.error.message);
+		console.log(request.error.name + '\n\n' + request.error.message);
 	};
 
 	transaction.oncomplete = function (e) {
-		alert('Cliente cadastrado!');
+		console.log('Cliente cadastrado!');
 	};
 }
 
@@ -95,11 +95,11 @@ function addProduto(produto){
 	var request = objectStore.put(produto);
 
 	request.onerror = function (e) {
-		alert(request.error.name + '\n\n' + request.error.message);
+		console.log(request.error.name + '\n\n' + request.error.message);
 	};
 
 	transaction.oncomplete = function (e) {
-		alert('Produto adicionado!');
+		console.log('Produto adicionado!');
 	};
 }
 
@@ -111,10 +111,10 @@ function addServico(servico){
 	var request = objectStore.put(servico);
 
 	request.onerror = function (e) {
-		alert(request.error.name + '\n\n' + request.error.message);
+		console.log(request.error.name + '\n\n' + request.error.message);
 	};
 
 	transaction.oncomplete = function (e) {
-		alert('Serviço adicionado!');
+		console.log('Serviço adicionado!');
 	};
 }
