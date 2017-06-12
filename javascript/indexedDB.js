@@ -2,39 +2,38 @@ function startDB() {
 	let dbName = "amicao";
 	dataBase = indexedDB.open(dbName,1);
 	dataBase.onupgradeneeded = function (e) {
-	
-		var active = dataBase.result;
-		var objectStore = active.createObjectStore('adm', { keyPath : 'id', autoIncrement : true });
+		let active = dataBase.result;
+		let objectStore = active.createObjectStore('adm', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : false });
 		objectStore.createIndex('email', 'email', { unique : true});
 		objectStore.createIndex('password', 'password', { unique : false});
 
-		var objectStore = active.createObjectStore('cliente', { keyPath : 'id', autoIncrement : true });
+		objectStore = active.createObjectStore('cliente', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : false });
 		objectStore.createIndex('email', 'email', { unique : true});
 		objectStore.createIndex('password', 'password', { unique : false});
 
-		var objectStore = active.createObjectStore('animal', { keyPath : 'id', autoIncrement : true });
+		objectStore = active.createObjectStore('animal', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('idOwner', 'idOwner', { unique : false });
 		objectStore.createIndex('name', 'name', { unique : false });
 		objectStore.createIndex('raça', 'raça', { unique : false});
 		objectStore.createIndex('idade', 'idade', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
-		var objectStore = active.createObjectStore('produto', { keyPath : 'id', autoIncrement : true });
+		objectStore = active.createObjectStore('produto', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : true });
 		objectStore.createIndex('desc', 'desc', { unique : false });
 		objectStore.createIndex('preço', 'preço', { unique : false});
 		objectStore.createIndex('qtd', 'qtd', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
-		var objectStore = active.createObjectStore('servico', { keyPath : 'id', autoIncrement : true });
+		objectStore = active.createObjectStore('servico', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : true });
 		objectStore.createIndex('desc', 'desc', { unique : false });
 		objectStore.createIndex('preço', 'preço', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
-		var objectStore = active.createObjectStore('endereco', { keyPath : 'id', autoIncrement : true });
+		objectStore = active.createObjectStore('endereco', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('idCliente', 'idCliente', { unique : false });
 		objectStore.createIndex('cep', 'cep', { unique : false });
 		objectStore.createIndex('cidade', 'cidade', { unique : false });
@@ -44,9 +43,13 @@ function startDB() {
 		objectStore.createIndex('numero', 'numero', { unique : false});
 		objectStore.createIndex('complemento', 'complemento', { unique : false});
 		objectStore.createIndex('referencia', 'referencia', { unique : false});
-
 	};
 	dataBase.onsuccess = function (e) {
+		prodList();
+		addProduto({name: "Ração", desc: "Ração Pedigree adulto", price: "19,90", qtd: "10", foto: "prod1.jpg"});
+		addProduto({name: "Casinha", desc: "Casinha para cachorro", price: "29,90", qtd: "5", foto: "prod2.jpg"});
+		addProduto({name: "Brinquedo", desc: "Brinquedo para cachorro", price: "10,50", qtd: "20", foto: "prod3.jpg"});
+		addAdm({name: "Adm", email: "adm@email.com", password: "adm"});
 		console.log("Database loaded")
 	};
 
@@ -56,11 +59,11 @@ function startDB() {
 }
 
 function addAdm(adm){
-	var active = dataBase.result;
-	var transaction = active.transaction(["adm"], "readwrite");
-	var objectStore = transaction.objectStore("adm");
+	let active = dataBase.result;
+	let transaction = active.transaction(["adm"], "readwrite");
+	let objectStore = transaction.objectStore("adm");
 
-	var request = objectStore.put(adm);
+	let request = objectStore.put(adm);
 
 	request.onerror = function (e) {
 		console.log(request.error.name + '\n\n' + request.error.message);
@@ -72,11 +75,11 @@ function addAdm(adm){
 }
 
 function addCliente(cliente){
-	var active = dataBase.result;
-	var transaction = active.transaction(["cliente"], "readwrite");
-	var objectStore = transaction.objectStore("cliente");
+	let active = dataBase.result;
+	let transaction = active.transaction(["cliente"], "readwrite");
+	let objectStore = transaction.objectStore("cliente");
 
-	var request = objectStore.put(cliente);
+	let request = objectStore.put(cliente);
 
 	request.onerror = function (e) {
 		console.log(request.error.name + '\n\n' + request.error.message);
@@ -88,11 +91,11 @@ function addCliente(cliente){
 }
 
 function addProduto(produto){
-	var active = dataBase.result;
-	var transaction = active.transaction(["produto"], "readwrite");
-	var objectStore = transaction.objectStore("produto");
+	let active = dataBase.result;
+	let transaction = active.transaction(["produto"], "readwrite");
+	let objectStore = transaction.objectStore("produto");
 
-	var request = objectStore.put(produto);
+	let request = objectStore.put(produto);
 
 	request.onerror = function (e) {
 		console.log(request.error.name + '\n\n' + request.error.message);
@@ -104,11 +107,11 @@ function addProduto(produto){
 }
 
 function addServico(servico){
-	var active = dataBase.result;
-	var transaction = active.transaction(["servico"], "readwrite");
-	var objectStore = transaction.objectStore("servico");
+	let active = dataBase.result;
+	let transaction = active.transaction(["servico"], "readwrite");
+	let objectStore = transaction.objectStore("servico");
 
-	var request = objectStore.put(servico);
+	let request = objectStore.put(servico);
 
 	request.onerror = function (e) {
 		console.log(request.error.name + '\n\n' + request.error.message);

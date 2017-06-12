@@ -1,3 +1,9 @@
+function isLogged(){
+	if(0)
+		return 1;
+	return 0;
+}
+
 function menu(logado){
 	if(logado){
 		let header = document.getElementById('header');
@@ -91,11 +97,11 @@ function menu(logado){
 			password = document.getElementById('password').value;
 			email = document.getElementById('email').value;
 
-			var active = dataBase.result;
-			var transaction = active.transaction(["cliente"], "readonly");
-			var objectStore = transaction.objectStore("cliente");
-			var index = objectStore.index("email");
-			var request = index.get(email);
+			let active = dataBase.result;
+			let transaction = active.transaction(["cliente"], "readonly");
+			let objectStore = transaction.objectStore("cliente");
+			let index = objectStore.index("email");
+			let request = index.get(email);
 			
 			request.onsuccess = function () {
 				if (request.result !== undefined) {
@@ -106,10 +112,10 @@ function menu(logado){
 						window.location.assign("index.html");
 					}
 				} else {
-					var transaction2 = active.transaction(["adm"], "readonly");
-					var objectStore2 = transaction2.objectStore("adm");
-					var index2 = objectStore2.index("email");
-					var request2 = index2.get(email);
+					let transaction2 = active.transaction(["adm"], "readonly");
+					let objectStore2 = transaction2.objectStore("adm");
+					let index2 = objectStore2.index("email");
+					let request2 = index2.get(email);
 
 					request2.onsuccess = function () {
 						if (request2.result !== undefined) {
@@ -134,4 +140,52 @@ function menu(logado){
 
 		header.appendChild(form);
  	}
+}
+
+function prodList(){
+	let active = dataBase.result;
+	let transaction = active.transaction(["produto"], "readonly");
+	let objectStore = transaction.objectStore("produto");
+
+	let produtos = [];
+
+	objectStore.openCursor().onsuccess = function (e) {
+		let result = e.target.result;
+		if (result === null) {
+			return;
+		}
+		produtos.push(result.value);
+		result.continue();
+	};
+
+	transaction.oncomplete = function() {
+		let outerHTML = '';
+		for (let key in produtos) {
+			outerHTML += '\n\
+							<section class="image-container">\n\
+								<a href="detalhes-produto.html">\n\
+									<img class="foto" src="..\\images\\' + produtos[key].foto.split("\\").slice(-1)[0] + '">\n\
+									<p>' + produtos[key].name + '</p>\n\
+								</a>\n\
+							</section>';
+		}
+		produtos = [];
+		document.getElementById("prodList").innerHTML = '<h1>Produtos</h1>' + outerHTML;
+	};
+
+/*	section = document.createElement("section");
+	a = document.createElement("a");
+	img = document.createElement("img");
+	p = document.createElement("p");
+
+	div.appendChild(section);
+	section.appendChild(a);
+	a.appendChild(img);
+	a.appendChild(p);
+
+	section.className = "image-container";
+	a.href = "detalhes-produto.html";
+	img.className = "foto";
+	img.src = "../images/prod1.jpg";
+	p.innerHTML = "Ração";*/
 }
