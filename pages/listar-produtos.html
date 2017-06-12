@@ -9,22 +9,16 @@
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <link rel="stylesheet" href="../stylesheets/lista.css"/>
         <script type="text/javascript" src="../javascript/user.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body onload="menu()">
-        <nav>
+    <body onload="startDB(); menu(0)">
+        <nav id = "header">
             <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
             <ul id="menu">
-                <li><a href="">Produtos</a>
-                    <ul>
-                        <li><a href="listar-produtos.html">Ração</a></li>
-                        <li><a href="listar-produtos.html">Utensílios</a></li>
-                        <li><a href="listar-produtos.html">Brinquedo</a></li>
-                    </ul>
-                </li>
+                <li><a href="listar-produtos.html">Produtos</a></li>
                 <li><a href="servico.html">Serviços</a></li>
             </ul>
-            <a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>            
-        </nav>  
+        </nav>
         <div class="list-container">
             <h1>Produtos</h1>
             <section class="image-container">

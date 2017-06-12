@@ -35,7 +35,7 @@ function startDB() {
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
 		var objectStore = active.createObjectStore('endereco', { keyPath : 'id', autoIncrement : true });
-		objectStore.createIndex('idOwner', 'idOwner', { unique : false });
+		objectStore.createIndex('idCliente', 'idCliente', { unique : false });
 		objectStore.createIndex('cep', 'cep', { unique : false });
 		objectStore.createIndex('cidade', 'cidade', { unique : false });
 		objectStore.createIndex('estado', 'estado', { unique : false});
