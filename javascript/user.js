@@ -1,5 +1,6 @@
 function isLogged(){
-	if(1)
+	if(document.cookie)
+		getUserId();
 		return 1;
 	return 0;
 }
@@ -19,6 +20,7 @@ function login() {
 			if(request.result.password !== password)
 				alert("Senha errada!");
 			else{
+				document.cookie = "userid="+request.result.id;
 				window.location.assign("index.html");
 			}
 		} else {
@@ -76,7 +78,7 @@ function menu(logado){
 					<form class="login-form" action="" method="POST">\n\
 						<input id="email" class="login-input" type="email" name="email" placeholder="E-mail"/>\n\
 						<input id="password" class="login-input" type="password" name="password" placeholder="Senha"/>\n\
-						<input class="login-input login-button"class="login-button" class="" type="submit" value="Entrar" onclick="login()"/>\n\
+						<input class="login-input login-button"class="login-button" class="" type="button" value="Entrar" onclick="login()"/>\n\
 					</form>';
 		document.getElementById('menu').innerHTML = outerHTML;
  	}
@@ -183,19 +185,7 @@ function animalList(){
 }
 
 function getUserId(){
-	let active = dataBase.result;
-	let transaction = active.transaction(["cliente"], "readonly");
-	let objectStore = transaction.objectStore("cliente");
-	let index = objectStore.index("email");
-	let request = index.get(email);
-
-	request.onsuccess = function () {
-		return request.result.id;
-	};
-
-	request.onerror = function (e) {
-		console.log(request.error.name + '\n\n' + request.error.message);
-	};
+	alert(document.cookie.split("=")[1]);
 }
 
 function cadastrarAnimal(){

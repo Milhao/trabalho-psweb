@@ -15,7 +15,7 @@ function startDB(startType) {
 
 		objectStore = active.createObjectStore('animal', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('idOwner', 'idOwner', { unique : false });
-		objectStore.createIndex('name', 'name', { unique : false });
+		objectStore.createIndex('name', 'name', { unique : true });
 		objectStore.createIndex('raca', 'raca', { unique : false});
 		objectStore.createIndex('idade', 'idade', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
