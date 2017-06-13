@@ -1,5 +1,5 @@
 function isLogged(){
-	if(getUserId() != 0)
+	if(getUserId() > 0)
 		return 1;
 	return 0;
 }

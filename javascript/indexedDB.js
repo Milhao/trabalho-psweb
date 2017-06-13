@@ -15,7 +15,7 @@ function startDB(startType) {
 
 		objectStore = active.createObjectStore('animal', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('idOwner', 'idOwner', { unique : false });
-		objectStore.createIndex('name', 'name', { unique : true });
+		objectStore.createIndex('name', 'name', { unique : false });
 		objectStore.createIndex('raca', 'raca', { unique : false});
 		objectStore.createIndex('idade', 'idade', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
@@ -54,9 +54,6 @@ function startDB(startType) {
 			addServico({name: "Vacina", desc: "Aplica vacina no animal", price: "59,90", foto: "vacina.jpeg"});
 			addAdm({name: "Adm", email: "adm@email.com", password: "adm"});
 			addCliente({name: "Cliente", email: "cliente@email.com", password: "cliente"});
-			addAnimal({idOwner: 1, name: "Mr. Schwibbles", raca: "Cachorro", idade: "1", foto: "cao1.jpg"})
-			addAnimal({idOwner: 1, name: "Sir Pounce", raca: "Gato", idade: "5", foto: "gato1.jpg"})
-			addAnimal({idOwner: 1, name: "Cuckadoopadoo", raca: "Papagaio", idade: "1", foto: "papagaio1.jpg"})
 		} else if(startType == 1)
 			prodList();
 		else if(startType == 2)
