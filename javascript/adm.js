@@ -6,7 +6,7 @@ function cadastrarAdministrador(){
 	if(name && email && password && cpassword){
 		if(password == cpassword){
 			adm = {name: name, email: email, password: password};
-			addAdm(adm);
+			add(adm,"adm");
 			document.getElementById('name').value = "";
 			document.getElementById('email').value = "";
 			document.getElementById('password').value = "";
@@ -25,7 +25,7 @@ function cadastrarCliente(){
 	if(name && email && password && cpassword){
 		if(password == cpassword){
 			cliente = {name: name, email: email, password: password};
-			addCliente(cliente);
+			add(cliente,"cliente");
 			document.getElementById('name').value = "";
 			document.getElementById('email').value = "";
 			document.getElementById('password').value = "";
@@ -44,7 +44,7 @@ function cadastrarProduto(){
 	foto = document.getElementById('foto').value;
 	produto = {name: name, desc: desc, price: price, qtd: qtd, foto: foto};
 	if(name && desc && price>=0 && qtd >= 0 && foto){
-		addProduto(produto);
+		add(produto,"produto");
 		document.getElementById('name').value = "";
 		document.getElementById('desc').value = "";
 		document.getElementById('price').value = "";
@@ -60,7 +60,7 @@ function cadastrarServico(){
 	foto = document.getElementById('foto').value;
 	servico = {name: name, desc: desc, price: price, foto: foto};
 	if(name && desc && price>=0 && foto){
-		addServico(servico);
+		add(servico,"servico");
 		document.getElementById('name').value = "";
 		document.getElementById('desc').value = "";
 		document.getElementById('price').value = "";

@@ -4,12 +4,12 @@ function isLogged(){
 	return 0;
 }
 
-function logout() {
+function logout(){
 	document.cookie="userid=0";
 	window.location.assign("index.html");
 }
 
-function login() {
+function login(){
 	password = document.getElementById('password').value;
 	email = document.getElementById('email').value;
 
@@ -202,10 +202,55 @@ function cadastrarAnimal(){
 	foto = document.getElementById('foto').value;
 	if(name && raca && idade && foto){
 		animal = {idOwner: getUserId(), name: name, raca: raca, idade: idade, foto: foto};
-		addAnimal(animal);
+		add(animal,"animal");
 		document.getElementById('name').value = "";
 		document.getElementById('raca').value = "";
 		document.getElementById('idade').value = "";
 		document.getElementById('foto').value = "";
+	}
+}
+
+function editarEndereco(){
+	cep = document.getElementById('cep').value;
+	cidade = document.getElementById('cidade').value;
+	estado = document.getElementById('estado').value;
+	bairro = document.getElementById('bairro').value;
+	rua = document.getElementById('rua').value;
+	numero = document.getElementById('numero').value;
+	complemento = document.getElementById('complemento').value;
+	referencia = document.getElementById('referencia').value;
+	if(cep && cidade && estado && bairro && rua && numero){
+		endereco = {idCliente: getUserId(), cep: cep, cidade: cidade, estado: estado, bairro: bairro, rua: rua, numero: numero, complemento: complemento, referencia: referencia};
+		request = dataBase.result.transaction(["endereco"], "readonly").objectStore("endereco").index("idCliente").get(getUserId());
+		request.onsuccess = function () {
+			request1 = dataBase.result.transaction(["endereco"], "readwrite").objectStore("endereco").delete(request.result.id);
+		}
+		add(endereco,"endereco");
+		document.getElementById('cep').value = "";
+		document.getElementById('cidade').value = "";
+		document.getElementById('estado').value = "";
+		document.getElementById('bairro').value = "";
+		document.getElementById('rua').value = "";
+		document.getElementById('numero').value = "";
+		document.getElementById('complemento').value = "";
+		document.getElementById('referencia').value = "";
+	}
+	window.location.assign("editar-endereco.html");
+}
+
+function getEndereco(){
+	let request = dataBase.result.transaction(["endereco"], "readonly").objectStore("endereco").index("idCliente").get(getUserId());
+
+	request.onsuccess = function () {
+		if (request.result !== undefined) {
+			document.getElementById('cep').value = request.result.cep;
+			document.getElementById('cidade').value = request.result.cidade;
+			document.getElementById('estado').value = request.result.estado;
+			document.getElementById('bairro').value = request.result.bairro;
+			document.getElementById('rua').value = request.result.rua;
+			document.getElementById('numero').value = request.result.numero;
+			document.getElementById('complemento').value = request.result.complemento;
+			document.getElementById('referencia').value = request.result.referencia;
+		}
 	}
 }

@@ -8,21 +8,22 @@
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/user.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body onload="menu(isLogged())">
+    <body onload="startDB(4); menu(isLogged())">
         <nav id="menu">
         </nav>
         <h1>Editar Endereço</h1>
-        <form action="" method="POST">
-            <input type="text" name="cep" placeholder="CEP"/>
-            <input type="text" name="cidade" placeholder="Cidade"/>
-            <input type="text" name="estado" placeholder="Estado"/>
-            <input type="text" name="bairro" placeholder="Bairro"/>
-            <input type="text" name="rua" placeholder="Rua"/>
-            <input type="number" name="numero" placeholder="Número"/>
-            <input type="text" name="complemento" placeholder="Complemento"/>
-            <input type="text" name="referencia" placeholder="Referência"/>
-            <input class="submit-button" type="submit" value="Salvar Alterações"/>
-        </form>
+        <div>
+            <input id="cep" type="text" name="cep" placeholder="CEP"/>
+            <input id="cidade" type="text" name="cidade" placeholder="Cidade"/>
+            <input id="estado" type="text" name="estado" placeholder="Estado"/>
+            <input id="bairro" type="text" name="bairro" placeholder="Bairro"/>
+            <input id="rua" type="text" name="rua" placeholder="Rua"/>
+            <input id="numero" type="number" name="numero" placeholder="Número"/>
+            <input id="complemento" type="text" name="complemento" placeholder="Complemento"/>
+            <input id="referencia" type="text" name="referencia" placeholder="Referência"/>
+            <input class="submit-button" type="submit" value="Salvar Alterações" onclick="editarEndereco()" />
+        </div>
     </body>
 </html>
