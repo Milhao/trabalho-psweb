@@ -1,3 +1,10 @@
+/*
+Alisson Mateus de Oliveira Magalhães    NºUSP: 8066287
+Creunivar Toledo de Abreu				NºUSP: 3460973
+Fábio Alves Martins Pereira             NºUSP: 7987435
+Rafael Silva de Milhã					NºUSP: 8139701
+*/
+
 function startDB(startType) {
 	let dbName = "amicao";
 	dataBase = indexedDB.open(dbName,1);
@@ -55,6 +62,9 @@ function startDB(startType) {
 			add({name: "Vacina", desc: "Aplica vacina no animal", price: "59,90", foto: "vacina.jpeg"},"servico");
 			add({name: "Adm", email: "adm@email.com", password: "adm"},"adm");
 			add({name: "Cliente", email: "cliente@email.com", password: "cliente"},"cliente");
+			add({idOwner: "1", name: "Totó", raca: "Cachorro", idade: "1", foto: "cao1.jpg"},"animal");
+			add({idOwner: "1", name: "Miau", raca: "Gato", idade: "4", foto: "gato1.jpg"},"animal");
+			add({idOwner: "1", name: "Loro", raca: "Papagaio", idade: "2", foto: "papagaio1.jpg"},"animal");
 		} else if(startType == 1)
 			prodList();
 		else if(startType == 2)

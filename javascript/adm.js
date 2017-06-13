@@ -1,3 +1,10 @@
+/*
+Alisson Mateus de Oliveira Magalhães    NºUSP: 8066287
+Creunivar Toledo de Abreu				NºUSP: 3460973
+Fábio Alves Martins Pereira             NºUSP: 7987435
+Rafael Silva de Milhã					NºUSP: 8139701
+*/
+
 function cadastrarAdministrador(){
 	name = document.getElementById('name').value;
 	email = document.getElementById('email').value;

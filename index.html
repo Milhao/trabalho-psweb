@@ -1,3 +1,9 @@
+<!--
+Alisson Mateus de Oliveira Magalhães    NºUSP: 8066287
+Creunivar Toledo de Abreu               NºUSP: 3460973
+Fábio Alves Martins Pereira             NºUSP: 7987435
+Rafael Silva de Milhã                   NºUSP: 8139701
+-->
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -11,7 +17,7 @@
 		<script type="text/javascript" src="../javascript/user.js"></script>
 		<script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body onload="startDB(0); menu(isLogged())">
+    <body onload="startDB(); menu(isLogged())">
         <nav id="menu">
         </nav>
 		<h1>Bem vindo ao Amicão, o melhor lugar para seus amiginhos</h1>
@@ -27,7 +33,6 @@
 				<img class="list-image" src="../images/amicao-logo-img3.png" alt="Amicâo Logo"/>
 			</section>	
 		</div>
-		<footer>
-		</footer>
+		<input class="login-input login-button" type="button" onclick="startDB(0)" value="Carregar dados!">
     </body>
 </html>

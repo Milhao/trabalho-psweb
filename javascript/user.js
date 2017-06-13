@@ -1,3 +1,10 @@
+/*
+Alisson Mateus de Oliveira Magalhães	NºUSP: 8066287
+Creunivar Toledo de Abreu				NºUSP: 3460973
+Fábio Alves Martins Pereira			 NºUSP: 7987435
+Rafael Silva de Milhã					NºUSP: 8139701
+*/
+
 function isLogged(){
 	if(getUserId() > 0)
 		return 1;
@@ -71,7 +78,7 @@ function menu(logado){
 							</ul>\n\
 						</li>\n\
 					</ul>\n\
-					<div class="login-form" action="" method="POST">\n\
+					<div class="login-form">\n\
 						<input class="login-input login-button" type="submit" value="Sair" onclick="logout()"/>\n\
 					</div>\n\
 					<a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>';
@@ -82,7 +89,7 @@ function menu(logado){
 						<li><a href="listar-produtos.html">Produtos</a></li>\n\
 						<li><a href="servico.html">Serviços</a></li>\n\
 					</ul>\n\
-					<form class="login-form" action="" method="POST">\n\
+					<form class="login-form">\n\
 						<input id="email" class="login-input" type="email" name="email" placeholder="E-mail"/>\n\
 						<input id="password" class="login-input" type="password" name="password" placeholder="Senha"/>\n\
 						<input class="login-input login-button" type="submit" value="Entrar" onclick="login()"/>\n\
@@ -253,4 +260,82 @@ function getEndereco(){
 			document.getElementById('referencia').value = request.result.referencia;
 		}
 	}
+}
+
+function editarServico(){
+	name = document.getElementById('name').value;
+	if(name){
+		 document.getElementById('servArea').innerHTML = 	'<h1>Editar Serviço</h1>\n\
+															<div>\n\
+																<input id="name" type="text" name="nome" placeholder="Nome"/>\n\
+																<input id="desc" type="text" name="descricao" placeholder="Descrição"/>\n\
+																<input id="price" type="number" name="preco" placeholder="Preço"/>\n\
+																<p class="form-out-text">Selecione uma Foto </p>\n\
+																<input id="foto" type="file" name="foto" accept="image/*"/>\n\
+																<input class="submit-button" type="submit" value="Salvar Alterações" onclick="atualiza()"/>\n\
+																<input class="submit-button" type="submit" value="Excluir Serviço" onclick="delServ()"/>\n\
+															</div>';
+		getServico(name);
+	}
+}
+
+function getServico(name){
+	let request = dataBase.result.transaction(["servico"], "readonly").objectStore("servico").index("name").get(name);
+
+	request.onsuccess = function () {
+		if (request.result !== undefined) {
+			document.getElementById('name').value = request.result.name;
+			document.getElementById('desc').value = request.result.desc;
+			document.getElementById('price').value = parseFloat(request.result.price);
+		}
+	}
+}
+
+function delServ(){
+	name = document.getElementById('name').value;
+	request = dataBase.result.transaction(["servico"], "readonly").objectStore("servico").index("name").get(name);
+		request.onsuccess = function () {
+			request1 = dataBase.result.transaction(["servico"], "readwrite").objectStore("servico").delete(request.result.id);
+		}
+	window.location.assign("pesquisar-servico.html");
+}
+
+function editarProduto(){
+	name = document.getElementById('name').value;
+	if(name){
+		 document.getElementById('prodArea').innerHTML = 	'<h1>Editar Produto</h1>\n\
+															<div>\n\
+																<input id="name" type="text" name="nome" placeholder="Nome"/>\n\
+																<input id="desc" type="text" name="descricao" placeholder="Descrição"/>\n\
+																<input id="price" type="number" name="preco" placeholder="Preço"/>\n\
+																<input id="qtd" type="number" name="quantidade-estoque" placeholder="Quantidade no Estoque"/>\n\
+																<p class="form-out-text">Selecione uma Foto </p>\n\
+																<input id="foto" type="file" name="foto" accept="image/*"/>\n\
+																<input class="submit-button" type="submit" value="Salvar Alterações" onclick="atualiza()"/>\n\
+																<input class="submit-button" type="submit" value="Excluir Serviço" onclick="delProd()"/>\n\
+															</div>';
+		getProduto(name);
+	}
+}
+
+function getProduto(name){
+	let request = dataBase.result.transaction(["produto"], "readonly").objectStore("produto").index("name").get(name);
+
+	request.onsuccess = function () {
+		if (request.result !== undefined) {
+			document.getElementById('name').value = request.result.name;
+			document.getElementById('desc').value = request.result.desc;
+			document.getElementById('price').value = parseFloat(request.result.price);
+			document.getElementById('qtd').value = parseInt(request.result.qtd);
+		}
+	}
+}
+
+function delProd(){
+	name = document.getElementById('name').value;
+	request = dataBase.result.transaction(["produto"], "readonly").objectStore("produto").index("name").get(name);
+		request.onsuccess = function () {
+			request1 = dataBase.result.transaction(["produto"], "readwrite").objectStore("produto").delete(request.result.id);
+		}
+	window.location.assign("pesquisar-produto.html");
 }
