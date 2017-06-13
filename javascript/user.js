@@ -1,5 +1,5 @@
 function isLogged(){
-	if(0)
+	if(1)
 		return 1;
 	return 0;
 }
@@ -145,4 +145,70 @@ function servList(){
 		servicos = [];
 		document.getElementById("servList").innerHTML = '<h1>Serviços Disponíveis</h1>' + outerHTML;
 	};
+}
+
+function animalList(){
+	let active = dataBase.result;
+	let transaction = active.transaction(["animal"], "readonly");
+	let objectStore = transaction.objectStore("animal");
+
+	let animais = [];
+
+	objectStore.openCursor().onsuccess = function (e) {
+		let result = e.target.result;
+		if (result === null) {
+			return;
+		}
+		animais.push(result.value);
+		result.continue();
+	};
+
+	transaction.oncomplete = function() {
+		let outerHTML = '';
+		for (let key in animais) {
+			if(getUserId() == animais[key].idOwner){
+				outerHTML += '\n\
+								<section class="image-container">\n\
+									<a href="editar-animal.html">\n\
+										<img class="list-image" src="..\\images\\' + animais[key].foto.split("\\").slice(-1)[0] + '" alt="Mr. Schwibbles">\n\
+										<p>' + animais[key].name + '</p>\n\
+									</a>\n\
+								</section>';
+			}
+		}
+		animais = [];
+		document.getElementById("animalList").innerHTML = '<h1>Animais</h1>' + outerHTML;
+
+	};
+}
+
+function getUserId(){
+	let active = dataBase.result;
+	let transaction = active.transaction(["cliente"], "readonly");
+	let objectStore = transaction.objectStore("cliente");
+	let index = objectStore.index("email");
+	let request = index.get(email);
+
+	request.onsuccess = function () {
+		return request.result.id;
+	};
+
+	request.onerror = function (e) {
+		console.log(request.error.name + '\n\n' + request.error.message);
+	};
+}
+
+function cadastrarAnimal(){
+	name = document.getElementById('name').value;
+	raca = document.getElementById('raca').value;
+	idade = document.getElementById('idade').value;
+	foto = document.getElementById('foto').value;
+	if(name && raca && idade && foto){
+		animal = {idOwner: getUserId(), name: name, raca: raca, idade: idade, foto: foto};
+		addAnimal(animal);
+		document.getElementById('name').value = "";
+		document.getElementById('raca').value = "";
+		document.getElementById('idade').value = "";
+		document.getElementById('foto').value = "";
+	}
 }

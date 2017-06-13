@@ -1,4 +1,4 @@
-function startDB(type) {
+function startDB(startType) {
 	let dbName = "amicao";
 	dataBase = indexedDB.open(dbName,1);
 	dataBase.onupgradeneeded = function (e) {
@@ -45,7 +45,7 @@ function startDB(type) {
 		objectStore.createIndex('referencia', 'referencia', { unique : false});
 	};
 	dataBase.onsuccess = function (e) {
-		if(type == 0){
+		if(startType == 0){
 			addProduto({name: "Racão", desc: "Racão Pedigree adulto", price: "19,90", qtd: "10", foto: "prod1.jpg"});
 			addProduto({name: "Casinha", desc: "Casinha para cachorro", price: "29,90", qtd: "5", foto: "prod2.jpg"});
 			addProduto({name: "Brinquedo", desc: "Brinquedo para cachorro", price: "10,50", qtd: "20", foto: "prod3.jpg"});
@@ -53,10 +53,16 @@ function startDB(type) {
 			addServico({name: "Banho", desc: "Banho no animal", price: "39,90", foto: "banho.png"});
 			addServico({name: "Vacina", desc: "Aplica vacina no animal", price: "59,90", foto: "vacina.jpeg"});
 			addAdm({name: "Adm", email: "adm@email.com", password: "adm"});
-		} else if(type == 1)
+			addCliente({name: "Cliente", email: "cliente@email.com", password: "cliente"});
+			addAnimal({idOwner: 1, name: "Mr. Schwibbles", raca: "Cachorro", idade: "1", foto: "cao1.jpg"})
+			addAnimal({idOwner: 1, name: "Sir Pounce", raca: "Gato", idade: "5", foto: "gato1.jpg"})
+			addAnimal({idOwner: 1, name: "Cuckadoopadoo", raca: "Papagaio", idade: "1", foto: "papagaio1.jpg"})
+		} else if(startType == 1)
 			prodList();
-		else if(type == 2)
+		else if(startType == 2)
 			servList();
+		else if(startType == 3)
+			animalList();
 		console.log("Database loaded")
 	};
 
@@ -126,5 +132,21 @@ function addServico(servico){
 
 	transaction.oncomplete = function (e) {
 		console.log('Servico adicionado!');
+	};
+}
+
+function addAnimal(animal){
+	let active = dataBase.result;
+	let transaction = active.transaction(["animal"], "readwrite");
+	let objectStore = transaction.objectStore("animal");
+
+	let request = objectStore.put(animal);
+
+	request.onerror = function (e) {
+		console.log(request.error.name + '\n\n' + request.error.message);
+	};
+
+	transaction.oncomplete = function (e) {
+		console.log('Animal registrado!');
 	};
 }

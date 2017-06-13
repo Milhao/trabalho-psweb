@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <link rel="stylesheet" href="../stylesheets/lista.css"/>
         <script type="text/javascript" src="../javascript/user.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body onload="menu(isLogged())">
+    <body onload="startDB(3); menu(isLogged())">
         <nav id="menu">
         </nav>
-        <div class="list-container">
+        <div id="animalList" class="list-container">
             <h1>Animais</h1>
             <section class="image-container">
                 <a href="editar-animal.html">

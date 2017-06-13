@@ -14,12 +14,12 @@
         </nav>
         <h1>Cadastrar Animal</h1>
         <form action="" method="POST">
-            <input type="text" name="nome" placeholder="Nome"/>
-            <input type="text" name="raca" placeholder="Raça"/>
-            <input type="number" name="idade" placeholder="Idade"/>
+            <input id="name" type="text" name="nome" placeholder="Nome"/>
+            <input id="raca" type="text" name="raca" placeholder="Raça"/>
+            <input id="idade" type="number" name="idade" placeholder="Idade"/>
             <p class="form-out-text">Selecione uma Foto </p>
-            <input type="file" name="foto" accept="image/*"/>
-            <input class="submit-button" type="submit" value="Cadastrar"/>
+            <input id="foto" type="file" name="foto" accept="image/*"/>
+            <input class="submit-button" type="submit" value="Cadastrar" onclick="cadastrarAnimal()" />
         </form>
     </body>
 </html>
