@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/user.js"></script>
+        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body onload="menu(isLogged())">
+    <body onload="startDB(); menu(isLogged())">
         <nav id="menu">
         </nav>
         <h1>Cadastrar Animal</h1>
@@ -19,7 +20,7 @@
             <input id="idade" type="number" name="idade" placeholder="Idade"/>
             <p class="form-out-text">Selecione uma Foto </p>
             <input id="foto" type="file" name="foto" accept="image/*"/>
-            <input class="submit-button" type="submit" value="Cadastrar" onclick="cadastrarAnimal()" />
+            <input class="submit-button" type="button" value="Cadastrar" onclick="cadastrarAnimal()" />
         </form>
     </body>
 </html>

@@ -1,8 +1,12 @@
 function isLogged(){
-	if(document.cookie)
-		getUserId();
+	if(getUserId() != 0)
 		return 1;
 	return 0;
+}
+
+function logout() {
+	document.cookie="userid=0";
+	window.location.assign("index.html");
 }
 
 function login() {
@@ -67,6 +71,9 @@ function menu(logado){
 							</ul>\n\
 						</li>\n\
 					</ul>\n\
+					<div class="login-form" action="" method="POST">\n\
+						<input class="login-input login-button" type="submit" value="Sair" onclick="logout()"/>\n\
+					</div>\n\
 					<a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>';
 		document.getElementById('menu').innerHTML = outerHTML;
 	} else {
@@ -78,7 +85,7 @@ function menu(logado){
 					<form class="login-form" action="" method="POST">\n\
 						<input id="email" class="login-input" type="email" name="email" placeholder="E-mail"/>\n\
 						<input id="password" class="login-input" type="password" name="password" placeholder="Senha"/>\n\
-						<input class="login-input login-button"class="login-button" class="" type="button" value="Entrar" onclick="login()"/>\n\
+						<input class="login-input login-button" type="submit" value="Entrar" onclick="login()"/>\n\
 					</form>';
 		document.getElementById('menu').innerHTML = outerHTML;
  	}
@@ -185,7 +192,7 @@ function animalList(){
 }
 
 function getUserId(){
-	alert(document.cookie.split("=")[1]);
+	return document.cookie.split("=")[1];
 }
 
 function cadastrarAnimal(){
