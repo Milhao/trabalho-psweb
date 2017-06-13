@@ -172,20 +172,37 @@ function prodList(){
 		produtos = [];
 		document.getElementById("prodList").innerHTML = '<h1>Produtos</h1>' + outerHTML;
 	};
+}
 
-/*	section = document.createElement("section");
-	a = document.createElement("a");
-	img = document.createElement("img");
-	p = document.createElement("p");
+function servList(){
+	let active = dataBase.result;
+	let transaction = active.transaction(["servico"], "readonly");
+	let objectStore = transaction.objectStore("servico");
 
-	div.appendChild(section);
-	section.appendChild(a);
-	a.appendChild(img);
-	a.appendChild(p);
+	let servicos = [];
 
-	section.className = "image-container";
-	a.href = "detalhes-produto.html";
-	img.className = "foto";
-	img.src = "../images/prod1.jpg";
-	p.innerHTML = "Ração";*/
+	objectStore.openCursor().onsuccess = function (e) {
+		let result = e.target.result;
+		if (result === null) {
+			return;
+		}
+		servicos.push(result.value);
+		result.continue();
+	};
+
+	transaction.oncomplete = function() {
+		let outerHTML = '';
+		for (let key in servicos) {
+			outerHTML += '\n\
+							<section class="image-container">\n\
+								<a href="reservar-horario.html">\n\
+									<img class="list-image" src="..\\images\\' + servicos[key].foto.split("\\").slice(-1)[0] + '" alt="Mr. Schwibbles">\n\
+								</a>\n\
+								<p class="price">' + servicos[key].name + '</p>\n\
+								<p class="price">Preço: <span style="color:black">' + servicos[key].price + '</span></p>\n\
+							</section>';
+		}
+		servicos = [];
+		document.getElementById("servList").innerHTML = '<h1>Serviços Disponíveis</h1>' + outerHTML;
+	};
 }

@@ -1,4 +1,4 @@
-function startDB() {
+function startDB(type) {
 	let dbName = "amicao";
 	dataBase = indexedDB.open(dbName,1);
 	dataBase.onupgradeneeded = function (e) {
@@ -16,21 +16,21 @@ function startDB() {
 		objectStore = active.createObjectStore('animal', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('idOwner', 'idOwner', { unique : false });
 		objectStore.createIndex('name', 'name', { unique : false });
-		objectStore.createIndex('raça', 'raça', { unique : false});
+		objectStore.createIndex('raca', 'raca', { unique : false});
 		objectStore.createIndex('idade', 'idade', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
 		objectStore = active.createObjectStore('produto', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : true });
 		objectStore.createIndex('desc', 'desc', { unique : false });
-		objectStore.createIndex('preço', 'preço', { unique : false});
+		objectStore.createIndex('price', 'price', { unique : false});
 		objectStore.createIndex('qtd', 'qtd', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
 		objectStore = active.createObjectStore('servico', { keyPath : 'id', autoIncrement : true });
 		objectStore.createIndex('name', 'name', { unique : true });
 		objectStore.createIndex('desc', 'desc', { unique : false });
-		objectStore.createIndex('preço', 'preço', { unique : false});
+		objectStore.createIndex('price', 'price', { unique : false});
 		objectStore.createIndex('foto', 'foto', { unique : false});
 
 		objectStore = active.createObjectStore('endereco', { keyPath : 'id', autoIncrement : true });
@@ -45,11 +45,18 @@ function startDB() {
 		objectStore.createIndex('referencia', 'referencia', { unique : false});
 	};
 	dataBase.onsuccess = function (e) {
-		prodList();
-		addProduto({name: "Ração", desc: "Ração Pedigree adulto", price: "19,90", qtd: "10", foto: "prod1.jpg"});
-		addProduto({name: "Casinha", desc: "Casinha para cachorro", price: "29,90", qtd: "5", foto: "prod2.jpg"});
-		addProduto({name: "Brinquedo", desc: "Brinquedo para cachorro", price: "10,50", qtd: "20", foto: "prod3.jpg"});
-		addAdm({name: "Adm", email: "adm@email.com", password: "adm"});
+		if(type == 0){
+			addProduto({name: "Racão", desc: "Racão Pedigree adulto", price: "19,90", qtd: "10", foto: "prod1.jpg"});
+			addProduto({name: "Casinha", desc: "Casinha para cachorro", price: "29,90", qtd: "5", foto: "prod2.jpg"});
+			addProduto({name: "Brinquedo", desc: "Brinquedo para cachorro", price: "10,50", qtd: "20", foto: "prod3.jpg"});
+			addServico({name: "Tosa", desc: "Tosa o animal", price: "39,90", foto: "tosa.jpeg"});
+			addServico({name: "Banho", desc: "Banho no animal", price: "39,90", foto: "banho.png"});
+			addServico({name: "Vacina", desc: "Aplica vacina no animal", price: "59,90", foto: "vacina.jpeg"});
+			addAdm({name: "Adm", email: "adm@email.com", password: "adm"});
+		} else if(type == 1)
+			prodList();
+		else if(type == 2)
+			servList();
 		console.log("Database loaded")
 	};
 
@@ -118,6 +125,6 @@ function addServico(servico){
 	};
 
 	transaction.oncomplete = function (e) {
-		console.log('Serviço adicionado!');
+		console.log('Servico adicionado!');
 	};
 }
