@@ -9,21 +9,9 @@
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/user.js"></script>
     </head>
-    <body onload="menu()">
-        <nav>
-            <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
-            <ul id="menu">
-                <li><a href="">Produtos</a>
-                    <ul>
-                        <li><a href="listar-produtos.html">Ração</a></li>
-                        <li><a href="listar-produtos.html">Utensílios</a></li>
-                        <li><a href="listar-produtos.html">Brinquedo</a></li>
-                    </ul>
-                </li>
-                <li><a href="servico.html">Serviços</a></li>
-            </ul>
-            <a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>            
-        </nav>  
+    <body onload="menu(isLogged())">
+        <nav id="menu">
+        </nav>
         <h1>Ração Pedrigree Adulto (10kg)</h1>
         <section class="product-container">
             <img src="../images/prod1.jpg">
