@@ -17,7 +17,7 @@ cadastrarPessoa = (type, req, res) => {
 	const password2 = req.body.password2;
 
 	if(password === password2){
-		couch.uniqid().then(function(ids){
+		couch.uniqid().then((ids) => {
 			const id = ids[0];
 
 			couch.insert(dbName, {
@@ -27,10 +27,10 @@ cadastrarPessoa = (type, req, res) => {
 				password: password,
 				type: type
 			}).then(
-				function(data, headers, status){
+				(data, headers, status) => {
 					res.redirect('/index-admin.html');
 				},
-				function(err){
+				(err) => {
 					res.send(err);
 				}
 			);
@@ -41,9 +41,9 @@ cadastrarPessoa = (type, req, res) => {
 }
 
 const dbName = 'amicao_db';
-const viewUrl = '_design/all_data/_view/all';
+const userUrl = '_design/users/_view/get_user';
 
-couch.listDatabases().then(function(dbs){
+couch.listDatabases().then((dbs) => {
 	console.log(dbs);
 });
 
@@ -53,15 +53,15 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/', function(req, res){
+app.get('/', (req, res) => {
 	couch.get(dbName, viewUrl).then(
-		function(data, headers, status){
+		(data, headers, status) => {
 			console.log(data.data.rows);
 			res.render('index',{
 				amicao_db:data.data.rows
 			});
 		},
-		function(err){
+		(err) => {
 			res.send(err);
 		});
 });
@@ -79,12 +79,28 @@ app.get('/', function(req, res){
 		});
 });*/
 
-app.post('/amicao_db/cadastrar_cliente', function(req, res){
+app.post('/amicao_db/cadastrar_cliente', (req, res) => {
 	cadastrarPessoa("client", req, res);
 });
 
-app.post('/amicao_db/cadastrar_administrador', function(req, res){
+app.post('/amicao_db/cadastrar_administrador', (req, res) => {
 	cadastrarPessoa("adm", req, res);
+});
+
+app.post('/amicao_db/login', (req, res) => {
+	const email = req.body.email;
+	const password = req.body.password;
+
+	couch.get(dbName, userUrl).then(({data, headers, status}) => {
+    	console.log(data.rows);
+    	data.rows.forEach((user) => {
+    		if (user.value.email == email){
+    			console.log('User found! Type: ' + user.value.type);
+    		}
+    	});
+	}, err => {
+		res.send(err);
+	});
 });
 
 app.listen(3000, function(){

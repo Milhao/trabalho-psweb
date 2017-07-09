@@ -89,10 +89,10 @@ function menu(logado){
 						<li><a href="listar-produtos.html">Produtos</a></li>\n\
 						<li><a href="servico.html">Serviços</a></li>\n\
 					</ul>\n\
-					<form class="login-form">\n\
-						<input id="email" class="login-input" type="email" name="email" placeholder="E-mail"/>\n\
-						<input id="password" class="login-input" type="password" name="password" placeholder="Senha"/>\n\
-						<input class="login-input login-button" type="submit" value="Entrar" onclick="login()"/>\n\
+					<form class="login-form" action="/amicao_db/login" method="POST">\n\
+						<input class="login-input" type="email" name="email" placeholder="E-mail"/>\n\
+						<input class="login-input" type="password" name="password" placeholder="Senha"/>\n\
+						<input class="login-input login-button" type="submit" value="Entrar"/>\n\
 					</form>';
 		document.getElementById('menu').innerHTML = outerHTML;
  	}
