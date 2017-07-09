@@ -1,0 +1,26 @@
+{
+  "name": "amicao_db",
+  "version": "1.0.0",
+  "description": "Petshop Amicao",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "node-couchdb": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milhao/trabalho-psweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Milhao/trabalho-psweb/issues"
+  },
+  "homepage": "https://github.com/Milhao/trabalho-psweb#readme"
+}
