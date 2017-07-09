@@ -10,6 +10,36 @@ const couch = new NodeCouchDB({
 	}
 });
 
+cadastrarPessoa = (type, req, res) => {
+	const name = req.body.name;
+	const email = req.body.email;
+	const password = req.body.password;
+	const password2 = req.body.password2;
+
+	if(password === password2){
+		couch.uniqid().then(function(ids){
+			const id = ids[0];
+
+			couch.insert(dbName, {
+				_id: id,
+				name: name,
+				email: email,
+				password: password,
+				type: type
+			}).then(
+				function(data, headers, status){
+					res.redirect('/index-admin.html');
+				},
+				function(err){
+					res.send(err);
+				}
+			);
+		});
+	} else {
+		res.redirect('/senhasDiferentes.html')
+	}
+}
+
 const dbName = 'amicao_db';
 const viewUrl = '_design/all_data/_view/all';
 
@@ -36,28 +66,7 @@ app.get('/', function(req, res){
 		});
 });
 
-/*app.post('/amicao_db/add', function(req, res){
-	const name = req.body.name;
-	const email = req.body.email;
-	couch.uniqid().then(function(ids){
-		const id = ids[0];
-
-		couch.insert(dbName, {
-			_id: id,
-			name: name,
-			email: email
-		}).then(
-			function(data, headers, status){
-				res.redirect('/');
-			},
-			function(err){
-				res.send(err);
-			}
-		);
-	});
-});
-
-app.post('/amicao_db/delete/:id', function(req, res){
+/*app.post('/amicao_db/delete/:id', function(req, res){
 	const id = req.params.id;
 	const rev = req.body.rev;
 
@@ -71,28 +80,11 @@ app.post('/amicao_db/delete/:id', function(req, res){
 });*/
 
 app.post('/amicao_db/cadastrar_cliente', function(req, res){
-	const name = req.body.name;
-	const email = req.body.email;
-	const password = req.body.password;
-	const password2 = req.body.password2;
+	cadastrarPessoa("client", req, res);
+});
 
-	couch.uniqid().then(function(ids){
-		const id = ids[0];
-
-		couch.insert(dbName, {
-			_id: id,
-			name: name,
-			email: email,
-			password: password
-		}).then(
-			function(data, headers, status){
-				res.redirect('/index-admin.html');
-			},
-			function(err){
-				res.send(err);
-			}
-		);
-	});
+app.post('/amicao_db/cadastrar_administrador', function(req, res){
+	cadastrarPessoa("adm", req, res);
 });
 
 app.listen(3000, function(){
