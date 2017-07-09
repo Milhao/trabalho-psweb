@@ -19,9 +19,7 @@ couch.listDatabases().then(function(dbs){
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -38,7 +36,7 @@ app.get('/', function(req, res){
 		});
 });
 
-app.post('/amicao_db/add', function(req, res){
+/*app.post('/amicao_db/add', function(req, res){
 	const name = req.body.name;
 	const email = req.body.email;
 	couch.uniqid().then(function(ids){
@@ -70,6 +68,31 @@ app.post('/amicao_db/delete/:id', function(req, res){
 		function(err){
 			res.send(err);
 		});
+});*/
+
+app.post('/amicao_db/cadastrar_cliente', function(req, res){
+	const name = req.body.name;
+	const email = req.body.email;
+	const password = req.body.password;
+	const password2 = req.body.password2;
+
+	couch.uniqid().then(function(ids){
+		const id = ids[0];
+
+		couch.insert(dbName, {
+			_id: id,
+			name: name,
+			email: email,
+			password: password
+		}).then(
+			function(data, headers, status){
+				res.redirect('/index-admin.html');
+			},
+			function(err){
+				res.send(err);
+			}
+		);
+	});
 });
 
 app.listen(3000, function(){

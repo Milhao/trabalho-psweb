@@ -41,12 +41,12 @@ Rafael Silva de Milhã                   NºUSP: 8139701
             <a href="index-admin.html"><img id="admin-index-image" src="../images/admin-logo.png" alt="Admin Index"/></a>    
         </nav>
         <h1>Cadastrar Cliente</h1>
-        <form action="" method="POST">
-            <input id="name" type="text" name="nome" placeholder="Nome"/>
-            <input id="email" type="email" name="email" placeholder="E-mail"/>
-            <input id="password" type="password" name="senha" placeholder="Senha"/>
-            <input id="cpassword" type="password" name="confirmar-senha" placeholder="Confirmar Senha"/>
-            <input class="submit-button" type="button" value="Cadastrar" onclick="cadastrarCliente()" />
+        <form action="/amicao_db/cadastrar_cliente" method="POST">
+            <input type="text" name="name" placeholder="Nome"/>
+            <input type="email" name="email" placeholder="E-mail"/>
+            <input type="password" name="password" placeholder="Senha"/>
+            <input type="password" name="password2" placeholder="Confirmar Senha"/>
+            <input class="submit-button" type="submit" value="Cadastrar"/>
         </form>
     </body>
 </html>
