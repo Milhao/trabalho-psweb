@@ -5,17 +5,6 @@ Fábio Alves Martins Pereira			 NºUSP: 7987435
 Rafael Silva de Milhã					NºUSP: 8139701
 */
 
-function isLogged(){
-	if(getUserId() > 0)
-		return 1;
-	return 0;
-}
-
-function logout(){
-	document.cookie="userid=0";
-	window.location.assign("index.html");
-}
-
 function login(){
 	password = document.getElementById('password').value;
 	email = document.getElementById('email').value;
@@ -57,9 +46,9 @@ function login(){
 	};
 }
 
-function menu(logado){
+menu = () => {
 	let outerHTML = '';
-	if(logado){
+	if(document.cookie.split("=")[1] == "client"){
 		outerHTML = '<a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>\n\
 					<ul>\n\
 						<li><a href="listar-produtos.html">Produtos</a></li>\n\
@@ -78,9 +67,9 @@ function menu(logado){
 							</ul>\n\
 						</li>\n\
 					</ul>\n\
-					<div class="login-form">\n\
-						<input class="login-input login-button" type="submit" value="Sair" onclick="logout()"/>\n\
-					</div>\n\
+					<form class="login-form" action="/amicao_db/logout" method="POST">\n\
+						<input class="login-input login-button" type="submit" value="Sair"/>\n\
+					</form>\n\
 					<a href="carrinho.html"><img id="shop-cart" src="../images/shopping-cart.png" alt="Carrinho de Compras"/></a>';
 		document.getElementById('menu').innerHTML = outerHTML;
 	} else {
@@ -196,10 +185,6 @@ function animalList(){
 		document.getElementById("animalList").innerHTML = '<h1>Animais</h1>' + outerHTML;
 
 	};
-}
-
-function getUserId(){
-	return document.cookie.split("=")[1];
 }
 
 function cadastrarAnimal(){

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const NodeCouchDB = require('node-couchdb');
+const cookieParser = require('cookie-parser');
 
 const couch = new NodeCouchDB({
 	auth: {
@@ -50,6 +51,7 @@ couch.listDatabases().then((dbs) => {
 const app = express();
 
 app.use(express.static(__dirname));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -92,15 +94,25 @@ app.post('/amicao_db/login', (req, res) => {
 	const password = req.body.password;
 
 	couch.get(dbName, userUrl).then(({data, headers, status}) => {
-    	console.log(data.rows);
     	data.rows.forEach((user) => {
     		if (user.value.email == email){
-    			console.log('User found! Type: ' + user.value.type);
+    			if(user.value.password == password){
+    				if(user.value.type == "adm")
+    					res.redirect('/index-admin.html');
+    				else
+    					res.cookie('type', user.value.type);
+    					res.redirect('/index.html');
+    			}
     		}
     	});
 	}, err => {
 		res.send(err);
 	});
+});
+
+app.post('/amicao_db/logout', (req, res) => {
+	res.clearCookie('type');
+	res.redirect('/index.html');
 });
 
 app.listen(3000, function(){
