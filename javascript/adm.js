@@ -75,23 +75,6 @@ function cadastrarServico(){
 	}
 }
 
-function editarServico(){
-	name = document.getElementById('name').value;
-	if(name){
-		 document.getElementById('servArea').innerHTML = 	'<h1>Editar Serviço</h1>\n\
-															<div>\n\
-																<input id="name" type="text" name="nome" placeholder="Nome"/>\n\
-																<input id="desc" type="text" name="descricao" placeholder="Descrição"/>\n\
-																<input id="price" type="number" name="preco" placeholder="Preço"/>\n\
-																<p class="form-out-text">Selecione uma Foto </p>\n\
-																<input id="foto" type="file" name="foto" accept="image/*"/>\n\
-																<input class="submit-button" type="submit" value="Salvar Alterações" onclick="atualiza()"/>\n\
-																<input class="submit-button" type="submit" value="Excluir Serviço" onclick="delServ()"/>\n\
-															</div>';
-		getServico(name);
-	}
-}
-
 function getServico(name){
 	let request = dataBase.result.transaction(["servico"], "readonly").objectStore("servico").index("name").get(name);
 

@@ -1,8 +1,8 @@
 <!--
 Alisson Mateus de Oliveira Magalhães    NºUSP: 8066287
-Creunivar Toledo de Abreu               NºUSP: 3460973
-Fábio Alves Martins Pereira             NºUSP: 7987435
-Rafael Silva de Milhã                   NºUSP: 8139701
+Creunivar Toledo de Abreu         NºUSP: 3460973
+Fábio Alves Martins Pereira NºUSP: 7987435
+Rafael Silva de Milhã            NºUSP: 8139701
 -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,9 +14,8 @@ Rafael Silva de Milhã                   NºUSP: 8139701
         <link rel="stylesheet" href="../stylesheets/menu.css"/>
         <link rel="stylesheet" href="../stylesheets/form.css"/>
         <script type="text/javascript" src="../javascript/adm.js"></script>
-        <script type="text/javascript" src="../javascript/indexedDB.js"></script>
     </head>
-    <body">
+    <body>
        <nav>
             <a href="index.html"><img id="petshop-logo" src="../images/petshop-logo-half-white.png" alt="Logo Petshop"/></a>
             <ul>
@@ -26,25 +25,36 @@ Rafael Silva de Milhã                   NºUSP: 8139701
                         <li><a href="cadastrar-administrador.html">Administrador</a></li>
                         <li><a href="cadastrar-produto.html">Produto</a></li>
                         <li><a href="cadastrar-servico.html">Serviço</a></li>
-                    </ul> 
+                    </ul>
                 </li>
                 <li><a href="">Gerenciamento</a>
                     <ul>
-                        <li><a href="pesquisar-cliente.html">Clientes</a></li>    
+                        <li><a href="pesquisar-cliente.html">Clientes</a></li>
                         <li><a href="pesquisar-administrador.html">Administradores</a></li>
                         <li><a href="pesquisar-produto.html">Produtos</a></li>
                         <li><a href="pesquisar-servico.html">Serviços</a></li>
                         <li><a href="editar-reserva.html">Agendamentos</a></li>
-                    </ul>
+                    </ul> 
                 </li>
             </ul> 
-            <a href="index-admin.html"><img id="admin-index-image" src="../images/admin-logo.png" alt="Admin Index"/></a>    
+            <a href="index-admin.html"><img id="admin-index-image" src="../images/admin-logo.png" alt="Admin Index"/></a>
         </nav>
-        <h1>Pesquisar Serviço</h1>
-        <form action="/amicao_db/editar_servico" method="POST">
-            <input type="text" name="name" placeholder="Pesquisar por Nome"/>
-            <input class="submit-button" type="submit" value="Pesquisar"/>
+        <div id="servArea">
+        <h1>Editar Servico</h1>
+        <form action="/amicao_db/atualiza_servico/<%= serv.key %>" method="POST" enctype="multipart/form-data">
+            <input value="<%= serv.value.name %>" type="text" name="name" placeholder="Nome"/>
+            <input value="<%= serv.value.desc %>" type="text" name="desc" placeholder="Descrição"/>
+            <input value="<%= serv.value.price %>" type="number" name="price" placeholder="Preço"/>
+            <input value="<%= serv.value.rev %>" type="hidden" name="rev"/>
+            <p class="form-out-text">Foto</p>
+            <input value="<%= serv.value.file %>" type="hidden" name="filename"/>
+            <input type="file" name="file" accept="image/*"/>
+            <input class="submit-button" type="submit" value="Salvar Alterações"/>
         </form>
+        <form action="/amicao_db/deleta_servico/<%= serv.key %>" method="POST">
+            <input value="<%= serv.value.rev %>" type="hidden" name="rev"/>
+            <input class="submit-button" type="submit" value="Excluir Administrador"/>
+        </form>
+        </div>
     </body>
 </html>
-	
